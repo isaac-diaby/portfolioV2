@@ -1,0 +1,41 @@
+---
+import { type ProjectFrontmatter } from "@/lib/interfaces/projectsFrontmatter.ts";
+
+const { frontmatter: ProjectFrontmatter } = Astro.props;
+---
+
+<li
+  class="flex flex-cols flex-wrap lg:flex-nowrap gap-y-4 gap-x-6 w-full list-none border-solid border-2 p-4 transition-[background-color color box-shadow] ease-in-out delay-30 shadow-md hover:shadow-[0_0_0.3rem_#050f2e] dark:hover:shadow-[0_0_0.3rem_#be9e6b] border-primary-200 dark:border-secondary-500"
+>
+  <div class="lg:max-w-xl">
+    <img
+      class="aspect-video w-full"
+      src={ProjectFrontmatter.thumbnail}
+      alt={ProjectFrontmatter.title + " Project Thumbnail"}
+    />
+  </div>
+
+  <div class="relative w-full">
+    <h2
+      class="capitalize text-lg font-mono font-bold text-primary-100 dark:text-secondary-500"
+    >
+      {ProjectFrontmatter.title}
+    </h2>
+    <!-- <p>{ProjectFrontmatter.tags}</p> -->
+    <p class="capitalize">
+      {ProjectFrontmatter.tags.map((tag: string) => <span> - {tag} </span>)}
+    </p>
+    <!-- <h3 class="font-semibold">{company}: <span>{start.toString()} - {end.toString()} </span> </h3> -->
+    <div class="my-3">
+      <p class="mb-10">
+        {ProjectFrontmatter.description}
+      </p>
+    </div>
+    <div class="absolute bottom-0 right-1/2 translate-x-1/2 w-max">
+      <a
+        href={"/projects/" + ProjectFrontmatter.slug}
+        class="dark:hover:text-secondary hover:text-primary-200">Read More</a
+      >
+    </div>
+  </div>
+</li>

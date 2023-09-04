@@ -1,0 +1,49 @@
+---
+import PagesLayout from "@/layouts/PagesLayout.astro";
+---
+
+<PagesLayout title="Home | Moustapha Isaac Diaby">
+  <section
+    class="mx-8 md:mx-16 lg:mx-32 grid place-items-center"
+    aria-label="My home Page"
+  >
+    <h1
+      class="hero__header scroll-m-20 text-4xl text-center font-extrabold tracking-tight lg:text-5xl text-wrap-[balance]"
+    >
+      <span class="text-primary-100 dark:text-secondary-500"> Hello, I'm</span>
+       Moustapha Isaac Diaby
+    </h1>
+    <!--    TODO: add animation of other things i do        -->
+    <h2
+      class="hero__header mt-6 lg:mt-12 md:text-lg text-center text-wrap-[balance]"
+    >
+      <span class="dark:hover:text-secondary hover:text-primary-200"
+        >Software Developer</span
+      > |
+      <span class="dark:hover:text-secondary hover:text-primary-200"
+        >Ethical Hacker</span
+      > |
+      <span class="dark:hover:text-secondary hover:text-primary-200"
+        >Investor</span
+      > |
+      <span class="dark:hover:text-secondary hover:text-primary-200"
+        >Creator</span
+      >
+    </h2>
+
+    <a
+      href="/resume/Portfolio-Resume-2023-Isaac-Diaby.pdf"
+      class="border-solid border-2 p-4 mt-8 md:mt-16 transition-[background-color color box-shadow] ease-in-out delay-30 hover:shadow-[0_0_1rem_#050f2e] dark:hover:shadow-[0_0_1rem_#be9e6b] border-primary-200 dark:border-secondary-500 hover:bg-primary-400 hover:text-white dark:hover:bg-secondary-400 dark:hover:text-black"
+      aria-label="Open Moustapha's Resume">Open My Resume</a
+    >
+  </section>
+  <!-- Replace with an image of myself -->
+  <!-- <img defer src="~static/myPicture.png" alt="Image of Moustapha Isaac Diaby"> -->
+</PagesLayout>
+<style lang="scss">
+  .hero {
+    &__header {
+      text-wrap: balance;
+    }
+  }
+</style>

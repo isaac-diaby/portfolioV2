@@ -1,0 +1,15 @@
+---
+import { type ProjectFrontmatter } from "@/lib/interfaces/projectsFrontmatter.ts";
+
+const projects = await Astro.glob<ProjectFrontmatter>(
+  "../../content/projects/*.mdx"
+);
+const { slug } = Astro.params;
+
+const project = projects.find((pj) => pj.frontmatter.slug === slug);
+if (!project) return Astro.redirect("/404");
+
+const { Content } = project;
+---
+
+<Content />

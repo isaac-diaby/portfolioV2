@@ -1,0 +1,27 @@
+---
+layout: ../../layouts/ProjectLayout.astro
+title: Tic Tac Toe With Python Sockets
+slug: tic-tac-toe-with-python-sockets-project
+thumbnail: /images/tictacktoe_thumbnail.jpg
+description: As part of my last year of high school, I made a Tic-tac-toe game written in python version 3.7 and powered by a python socket and Tkinter. This project aims to allow more than 6 clients to authenticate themselves and play a game of tic tac toe game, with persistent user data. 
+tags: [Python, Sockets, Tkinter, Sqlite]
+liveSite: 
+codeBase: https://github.com/isaac-diaby/Tick-Tac-Toe-With-Python-Sockets-Tkinter
+---
+
+As part of my last year of high school, I made a Tic-tac-toe game written in python version 3.7 and powered by a python socket and Tkinter. This project aims to allow more than 6 clients to authenticate themselves and play a game of tic tac toe game, with persistent user data.  I built this application originally as my Advanced higher computing science course work and I wanted to create an application that would demonstrate my python skills: 
+- Object Orientated Programming
+- Concurrent programming
+- Insertion sort algorithm 
+- SQL
+
+The application is separated into two different sections: client.py and server.py.
+Main Files
+client.py: This file manages everything that the client sees and interact with to communicate to the socket server. server.py: All clients must interact with the socket server which is created in this file. The file manages all the game board and the queue match making logic, credential validations + encryption, authentication and client to client interactions.
+
+Secondary Files
+client_socket_connection.py: This file contains all the actions that the client can send to the socket server. its responsible for storing and manipulate the data that is received from the server to the client.
+
+
+
+I've written a full design document that you can find [here on medium](https://medium.com/@midiaby/how-to-make-an-online-game-using-python-sockets-tkinter-my-advance-higher-project-40006a014134)

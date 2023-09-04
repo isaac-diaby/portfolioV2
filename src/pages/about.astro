@@ -1,0 +1,161 @@
+---
+import PagesLayout from "@/layouts/PagesLayout.astro";
+import ExperienceCard from "@/components/ExperienceCard.astro";
+const featuredProgrammingLanguages = [
+  "C++",
+  "Python",
+  "Rust",
+  "TypeScript",
+  "Dart",
+  "Kotlin",
+  "OCaml",
+];
+const featuredCybersecurityConcepts = [
+  "Buffer Overflow (IoT, Software)",
+  "Custom Scripting (Automation)",
+  "MITRE ATT&CK",
+  "Security and Infrustructure Reports (Cloud, On-prem solutions)",
+  "TCP/OSI Model",
+  "Networking",
+  "Azure, AWS, GCP security"
+];
+
+const featuredWorkExperiences = [
+  {
+    title: "Ethical Hacking (Bsc)",
+    company: "Abertay University",
+    start: "21-09-21",
+    end: "30-05-24",
+    body: "Learning how to carry out exploitation, reconnaissance, network analysis and more for companies and clients in a professional way. More information can be found on the university course website.",
+  },
+  {
+    title: "Infrastructure and Security Developer",
+    company: "532 Design",
+    start: "15-06-22",
+    end: "31-12-23",
+    body: "In this role, I Was Responsible for managing and setting up the Company’s AWS Infrastructure as Code (IaC) with Terraform. Where I set up the followings; VPC, Availability Zones, Networking Security with Security Groups and ACL rules for both the public and Private Servers, EC2 instances with auto Scaling, application Load balancer, Route53 and auto deployment with Code Deploy and Bitbucket Pipeline.  I was also responsible for setting up S3 Buckets and RDS For the Companies application. I also worked on the Security aspects of the API server with the client application which was running symphony -> Unity. This was achieved by JWT Tokens and PlayFab integration along with an API Driver that I created for the unity C++ application That managed the Session.",
+  },
+  {
+    title: "Agile Scrum Master & Journey Developer Internship",
+    company: "Royal Bank of Scotland",
+    start: "19-06-19",
+    end: "19-07-19",
+    body: `I was part of the "Saving and Invest" and "Effortless Payments" teams at the Royal Bank of Scotland. Using the scrum agile methodology to work effectively as a team and produce improved customer experiences. Creating visual data that will help the scrum team better understand themselves and reflect on sprints. I used Excel forms and visual basic scripting (VBs) to automatically generate graphs and reports. Attending daily Stand-ups, helps the whole team stay up to date and highlights any blocker in the current sprint. More information can be found in my CV. The teams that I worked with were welcoming and easily approachable which made my month easy to settle in. I learned a lot about the steps that RBS is taking to move forward in the future.`,
+  },
+  {
+    title: "Sales Associate",
+    company: "Footlocker",
+    start: "01-10-19",
+    end: "11-09-20",
+    body: `I am and always will be honoured to be accepted into the footlocker family ( Edinburgh - Princess street ). During my time with the Footlocker team, I’ve learnt to work effectively on a busy shop floor and developed my skill to provide exceeding customer experiences to build lasting customer relationships. Our store received the top conversion and customer feedback award in 2020 for our district, additionally, the district manager recognised my efforts in building strong customer engagement and feedback after conversions. I am proud and happy to take the same energy and work ethic forward into my next journey. I've really enjoyed my time working at Footlocker and the people. More information Can be found in my CV.`,
+  },
+];
+---
+
+<PagesLayout title="About Me | Moustapha Isaac Diaby">
+  <section class="mx-8 md:mx-16 lg:mx-32" aria-label="About Me">
+    <div class="grid md:grid-cols-[200px_minmax(200px,_1fr)] gap-5">
+      <div
+        class="flex md:flex-col gap-6 border-r-2 border-primary-500 dark:border-secondary-500"
+      >
+        <div class="flex flex-col">
+          <h3
+            class="basis-12 text-lg font-bold text-primary-100 dark:text-secondary-500"
+          >
+            Programming Languages
+          </h3>
+          <ul class="place-items-center list-disc">
+            {featuredProgrammingLanguages.map((lan) => <li> {lan} </li>)}
+          </ul>
+        </div>
+        <div class="flex flex-col">
+          <h3
+            class="basis-12 text-lg font-bold text-primary-100 dark:text-secondary-500"
+          >
+            Cybersecurity Concepts
+          </h3>
+          <ul class="place-items-center list-disc box-content">
+            {featuredCybersecurityConcepts.map((eth) => <li> {eth} </li>)}
+          </ul>
+        </div>
+      </div>
+      <div class="flex flex-col mt-6 md:mt-0">
+        <h1
+          class="scroll-m-20 text-4xl text-center font-extrabold tracking-tight lg:text-5xl"
+        >
+          About Me
+        </h1>
+        <div class="my-6">
+          <p class="mb-2">
+            I'm currently in my final year at Abertay University, pursuing a BSc
+            in Ethical Hacking with a strong academic track record on course for
+            a First-Class degree. I enjoy the financial markets take part in my
+            own investment strategies - Right after University, I plan to start
+            my CFA 1 exam.
+          </p>
+          <p>
+            I'm passionate about entrepreneurship and have founded two
+            remarkable companies:
+          </p>
+          <h2
+            class="text-lg font-semibold mt-4 text-primary-100 dark:text-secondary-500"
+          >
+            School Link LTD (schoolink.uk):
+          </h2>
+          <p class="my-2">
+            At School Link, we're revolutionizing the education landscape. Our
+            platform empowers teachers with valuable insights into their
+            teaching methods while providing students with a deeper
+            understanding of their learning journey. Through secure
+            communication channels, we're helping schools transition into the AI
+            supported digital age, offering analytical data on homework, and
+            facilitating connections among students who share similar interests.
+            Additionally, we've established partnerships to open doors for
+            students to explore exciting programs and opportunities.
+          </p>
+
+          <h2
+            class="text-lg font-semibold mt-4 text-primary-100 dark:text-secondary-500"
+          >
+            Project Bissap LTD:
+          </h2>
+          <p class="my-2">
+            Project Bissap is more than just a juice brand; it's a celebration
+            of culture and a commitment to positive global impact. Our hibiscus
+            and ginger-based juices not only tantalize taste buds but also
+            support charitable endeavors focused on education in developing
+            countries. This aligns perfectly with my personal mission, closely
+            tied to School Link's goals. With Project Bissap, we're not just
+            selling a beverage; we're creating an experience that makes
+            customers feel great about their choices, from purchase to the last
+            drop, knowing they've contributed to a worthy cause while enjoying
+            the health benefits of our ingredients.
+          </p>
+        </div>
+
+        <div class="my-8">
+          <h1
+            class="scroll-m-20 text-4xl text-center font-extrabold tracking-tight lg:text-5xl"
+          >
+            My Experiences
+          </h1>
+          <ul class="flex flex-col gap-6 mt-6 md:mt-12">
+            {
+              featuredWorkExperiences.map((exp) => (
+                <ExperienceCard
+                  title={exp.title}
+                  company={exp.company}
+                  start={exp.start}
+                  end={exp.end}
+                  body={exp.body}
+                >
+                  {" "}
+                </ExperienceCard>
+              ))
+            }
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+</PagesLayout>

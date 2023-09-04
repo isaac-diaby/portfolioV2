@@ -1,0 +1,27 @@
+---
+interface Props {
+  title: string;
+  company: string;
+  body: string;
+  start: Date | string;
+  end: Date | string;
+}
+
+const { title, company, body, start, end } = Astro.props;
+---
+
+<li
+  class="list-none border-solid border-2 p-4 transition-[background-color color box-shadow] ease-in-out delay-30 shadow-md hover:shadow-[0_0_0.3rem_#050f2e] dark:hover:shadow-[0_0_0.3rem_#be9e6b] border-primary-200 dark:border-secondary-500"
+>
+  <h2
+    class="capitalize text-lg font-mono font-bold text-primary-100 dark:text-secondary-500"
+  >
+    {title}
+  </h2>
+  <h3 class="font-semibold">
+    {company}: <span>{start.toString()} - {end.toString()}</span>
+  </h3>
+  <p class="mt-2">
+    {body}
+  </p>
+</li>

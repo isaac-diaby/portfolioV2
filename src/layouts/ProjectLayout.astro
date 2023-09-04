@@ -1,0 +1,61 @@
+---
+import MainLayout from "@/layouts/MainLayout.astro";
+import Navbar from "@/components/Navbar";
+import { type ProjectFrontmatter } from "@/lib/interfaces/projectsFrontmatter.ts";
+
+const { frontmatter: ProjectFrontmatter } = Astro.props;
+---
+
+<MainLayout
+  title={ProjectFrontmatter.title}
+  ,
+  desc={ProjectFrontmatter.description}
+>
+  <main class="min-h-screen">
+    <Navbar client:only />
+    <section class="mx-8 md:mx-16 lg:mx-32">
+      <h1
+        class="scroll-m-20 mb-3 md:mb-12 text-4xl text-center font-extrabold tracking-tight lg:text-5xl"
+      >
+        {ProjectFrontmatter.title}
+      </h1>
+      <img
+        class="aspect-video mx-auto"
+        src={ProjectFrontmatter.thumbnail}
+        alt={ProjectFrontmatter.title + " Project Thumbnail"}
+      />
+      <hr class="my-3 dark:text-secondary text-primary-200" />
+      <div class="flex justify-between">
+        <a
+          class="dark:hover:text-secondary hover:text-primary-200 border-solid border-2 p-2 border-primary-200 dark:border-secondary-500"
+          href="/projects"
+          aria-label="Go back to all projects">Back</a
+        >
+        {
+          ProjectFrontmatter.codeBase && (
+            <a
+              class="dark:hover:text-secondary hover:text-primary-200 border-solid border-2 p-2  border-primary-200 dark:border-secondary-500"
+              href={ProjectFrontmatter.codeBase}
+              aria-label="Go to the code base"
+            >
+              Code Base
+            </a>
+          )
+        }
+        {
+          ProjectFrontmatter.liveSite && (
+            <a
+              class="dark:hover:text-secondary hover:text-primary-200 border-solid border-2 p-2  border-primary-200 dark:border-secondary-500"
+              href={ProjectFrontmatter.liveSite}
+              aria-label="Go to the live site"
+            >
+              Live Site
+            </a>
+          )
+        }
+      </div>
+      <hr class="my-3" />
+      <slot />
+    </section>
+  </main>
+</MainLayout>

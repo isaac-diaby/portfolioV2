@@ -1,0 +1,24 @@
+---
+import PagesLayout from "@/layouts/PagesLayout.astro";
+import ProjectCard from "@/components/ProjectCard.astro";
+import { type ProjectFrontmatter } from "@/lib/interfaces/projectsFrontmatter.ts";
+
+const projects = await Astro.glob<ProjectFrontmatter>(
+  "../../content/projects/*.mdx"
+);
+---
+
+<PagesLayout title="Projects | Moustapha Isaac Diaby">
+  <section class="mx-8 md:mx-16 lg:mx-32">
+    <h1 class="scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-5xl">
+      My Past Projects
+    </h1>
+    <ul class="flex gap-10 flex-wrap my-8 md:my-16">
+      {
+        projects.map((project) => (
+          <ProjectCard frontmatter={project.frontmatter} />
+        ))
+      }
+    </ul>
+  </section>
+</PagesLayout>

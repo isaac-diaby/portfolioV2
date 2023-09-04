@@ -1,0 +1,70 @@
+---
+import PagesLayout from "@/layouts/PagesLayout.astro";
+import ContactCard from "@/components/ContactCard.astro";
+interface contact {
+  title: string;
+  body: string;
+  href: string;
+  icon: string;
+}
+const contacts: contact[] = [
+  {
+    title: "Calendly",
+    body: "Book a call session",
+    href: "https://calendly.com/midiaby",
+    icon: "",
+  },
+  {
+    title: "Github",
+    body: "Check out my code base",
+    href: "https://github.com/isaac-diaby",
+    icon: "",
+  },
+  {
+    title: "Linkedin",
+    body: "Professional social media",
+    href: "https://www.linkedin.com/in/moustapha-diaby/",
+    icon: "",
+  },
+  {
+    title: "X",
+    body: "Aka Twitter",
+    href: "https://twitter.com/IsaacDiaby4Real",
+    icon: "",
+  },
+  {
+    title: "Youtube",
+    body: "Sharing my knowledge",
+    href: "https://www.youtube.com/channel/UCdXDvL_csGUnBGf1chA5ynA",
+    icon: "",
+  },
+  {
+    title: "Email",
+    body: "me@isaacdiaby.tech",
+    href: "mailto:me@isaacdiaby.tech?subject=Sent%20from%20your%20website%20portfolio",
+    icon: "",
+  },
+];
+---
+
+<PagesLayout title="Contact Me | Moustapha Isaac Diaby">
+  <section class="mx-8 md:mx-16 lg:mx-32">
+    <h1
+      class="scroll-m-20 text-4xl text-center font-extrabold tracking-tight lg:text-5xl"
+    >
+      Contact Me
+    </h1>
+    <ul class="flex justify-around flex-wrap gap-1" style="text-wrap: balance;">
+      {
+        contacts.map((contact) => (
+          <ContactCard
+            title={contact.title}
+            body={contact.body}
+            href={contact.href}
+            icon={contact.icon}
+          />
+        ))
+      }
+    </ul>
+  </section>
+</PagesLayout>

@@ -1,0 +1,26 @@
+---
+interface Props {
+  title: string;
+  body: string;
+  href: string;
+  icon: string;
+}
+
+const { href, title, body, icon } = Astro.props;
+---
+
+<li
+  class="list-none basis-48 border-solid border-2 p-4 mt-8 md:mt-16 transition-[background-color color box-shadow] ease-in-out delay-30 hover:shadow-[0_0_1rem_#050f2e] dark:hover:shadow-[0_0_1rem_#be9e6b] border-primary-200 dark:border-secondary-500"
+>
+  <a href={href} target="_blank" rel="noopener noreferrer">
+    <h2
+      class="capitalize text-lg font-mono font-bold text-primary-100 dark:text-secondary-500"
+    >
+      {title}
+      <span> &rarr;</span>
+    </h2>
+    <p class="capitalize mt-2">
+      {body}
+    </p>
+  </a>
+</li>

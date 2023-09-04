@@ -1,0 +1,16 @@
+---
+import MainLayout from "@/layouts/MainLayout.astro";
+import Navbar from "@/components/Navbar";
+
+const { title } = Astro.props;
+---
+
+<MainLayout
+  title={title}
+  desc="Moustapha Isaac Diaby: Portfolio, Skills, Blogs, and More | Founder & CEO of Schoolink |  Founder & CEO of Project Bissap | Expert in Programming, Scaling Applications, Infrastructure, Cybersecurity, and Investment Solutions | Explore My Digital World."
+>
+  <main class="min-h-screen">
+    <Navbar client:only />
+    <slot />
+  </main>
+</MainLayout>
