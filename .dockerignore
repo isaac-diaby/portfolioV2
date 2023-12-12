@@ -8,3 +8,4 @@
 **/.git
 .DS_Store
 **/.astro
+node_modules
