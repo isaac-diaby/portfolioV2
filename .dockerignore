@@ -6,3 +6,5 @@
 .dockerignore
 .gitignore
 **/.git
+.DS_Store
+**/.astro
