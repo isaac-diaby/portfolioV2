@@ -1,23 +1,21 @@
 FROM node:20-alpine AS base
-# ENV PNPM_HOME="/pnpm"
-# ENV PATH="$PNPM_HOME:$PATH"
-# RUN corepack enable
+ENV PNPM_HOME="/pnpm"
+ENV PATH="$PNPM_HOME:$PATH"
+RUN corepack enable pnpm
 
 WORKDIR /app
 COPY . .
 
-# FROM base AS prod-deps
-# RUN --mount=type=cache,id=pnpm,target=/pnpm/store pnpm install -P --frozen-lockfile
 FROM base AS prod-deps
-RUN --mount=type=cache,id=npm,target=/npm/store npm install --omit=dev
+RUN --mount=type=cache,id=pnpm,target=/pnpm/store pnpm install -P --frozen-lockfile
+# RUN --mount=type=cache,id=npm,target=/npm/store npm install --omit=dev
 
 
-# FROM base AS build
-# RUN --mount=type=cache,id=pnpm,target=/pnpm/store pnpm install --frozen-lockfile
-# RUN pnpm run build
 FROM base AS build
-RUN --mount=type=cache,id=npm,target=/npm/store npm install
-RUN npm run build
+RUN --mount=type=cache,id=pnpm,target=/pnpm/store pnpm install --frozen-lockfile
+RUN pnpm run build
+# RUN --mount=type=cache,id=npm,target=/npm/store npm install
+# RUN npm run build
 
 FROM base
 COPY --from=prod-deps /app/node_modules /app/node_modules
