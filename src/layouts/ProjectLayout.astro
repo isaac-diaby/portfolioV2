@@ -21,6 +21,7 @@ const { frontmatter: ProjectFrontmatter } = Astro.props;
       </h1>
       <img
         class="aspect-video mx-auto"
+        transition:name={"thumbnail_"+ProjectFrontmatter.slug} transition:persist
         src={ProjectFrontmatter.thumbnail}
         alt={ProjectFrontmatter.title + " Project Thumbnail"}
       />
@@ -56,6 +57,7 @@ const { frontmatter: ProjectFrontmatter } = Astro.props;
       </div>
       <hr class="my-3" />
       <slot />
+      <hr class="my-3" />
     </section>
   </main>
 </MainLayout>

@@ -7,27 +7,30 @@
     "start": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "astro": "astro",
-    "deploy": "pnpm build && vercel deploy --prebuilt"
+    "astro": "astro"
   },
   "dependencies": {
-    "@astrojs/mdx": "^1.0.0",
-    "@astrojs/react": "^3.0.0",
-    "@astrojs/sitemap": "^3.0.0",
-    "@astrojs/tailwind": "^5.0.0",
-    "@astrojs/vercel": "^4.0.2",
-    "@types/react": "^18.0.21",
-    "@types/react-dom": "^18.0.6",
-    "astro": "^3.0.3",
+    "@astrojs/mdx": "^2.0.1",
+    "@astrojs/node": "^7.0.1",
+    "@astrojs/react": "^3.0.7",
+    "@astrojs/sitemap": "^3.0.3",
+    "@astrojs/tailwind": "^5.0.3",
+    "astro": "^4.0.4",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.0.0",
-    "framer-motion": "^10.16.2",
+    "framer-motion": "^10.16.16",
     "lucide-react": "^0.274.0",
-    "react": "^18.0.0",
-    "react-dom": "^18.0.0",
-    "sass": "^1.66.1",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "sass": "^1.69.5",
     "tailwind-merge": "^1.14.0",
-    "tailwindcss": "^3.0.24",
-    "tailwindcss-animate": "^1.0.7"
+    "tailwindcss": "^3.3.6",
+    "tailwindcss-animate": "^1.0.7",
+    "typescript": "^5.3.3"
+  },
+  "devDependencies": {
+    "@astrojs/check": "^0.3.2",
+    "@types/react": "^18.2.43",
+    "@types/react-dom": "^18.2.17"
   }
 }

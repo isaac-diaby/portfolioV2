@@ -1,8 +1,8 @@
 import { motion } from "framer-motion";
-import { useState } from "react";
+import { Component, useEffect, useState } from "react";
 import { useMediaQuery } from "@/lib/useMQ";
 
-export default function Navbar() {
+export default function Navbar()  {
   const [toggle, setToggle] = useState<boolean>(false);
   const matches = useMediaQuery("(min-width: 1280px)");
 
@@ -13,6 +13,31 @@ export default function Navbar() {
       (!("color-theme" in window.localStorage) &&
         useMediaQuery("(prefers-color-scheme: dark)"));
   const [themeToggle, setThemeToggle] = useState<boolean>(darkThemematches);
+
+  function toggleTheme() {
+    setThemeToggle((prev) => {
+      // if set via local storage previously
+      // so that we dont catch out of SSR
+      if (!window) return !prev;
+      if (window.localStorage.getItem("color-theme")) {
+        if (prev) {
+          document.documentElement.classList.remove("dark");
+          window.localStorage.setItem("color-theme", "light");
+        } else {
+          document.documentElement.classList.add("dark");
+          window.localStorage.setItem("color-theme", "dark");
+        }
+      }
+      return !prev;
+    });
+  }
+  useEffect(() => {
+    if (themeToggle) {
+      document.documentElement.classList.add("dark");
+    } else {
+      document.documentElement.classList.remove("dark");
+    }
+  }, []);
 
   return (
     <nav className="relative mx-8 mb-24 flex justify-between items-center pt-12 pb-6 font-medium md:mx-16 lg:mx-32 ">
@@ -46,23 +71,7 @@ export default function Navbar() {
         </ul>
       )}
       <button
-        onClick={() =>
-          setThemeToggle((prev) => {
-            // if set via local storage previously
-            // so that we dont catch out of SSR
-            if (!window) return !prev;
-            if (window.localStorage.getItem("color-theme")) {
-              if (prev) {
-                document.documentElement.classList.remove("dark");
-                window.localStorage.setItem("color-theme", "light");
-              } else {
-                document.documentElement.classList.add("dark");
-                window.localStorage.setItem("color-theme", "dark");
-              }
-            }
-            return !prev;
-          })
-        }
+        onClick={() => toggleTheme()}
         id="theme-toggle"
         type="button"
         className="text-primary-500 dark:text-secondary-400 hover:bg-blue-900 dark:hover:bg-secondary-700 focus:outline-none focus:ring-4 focus:ring-primary-200 dark:focus:ring-secondary-700 rounded-lg text-sm p-2.5"
@@ -119,7 +128,7 @@ export default function Navbar() {
         <motion.div
           animate={{ opacity: 1, x: 0 }}
           initial={{ opacity: 0, x: 25 }}
-          className="fixed flex bg-theme-light dark:bg-theme-dark text-black dark:text-white bottom-0 left-0 w-full h-screen items-center justify-center"
+          className="fixed flex z-10 bg-theme-light dark:bg-theme-dark text-black dark:text-white bottom-0 left-0 w-full h-screen items-center justify-center"
         >
           <ul className="flex flex-col gap-16 text-lg">
             <li className="dark:hover:text-secondary hover:text-primary-200">

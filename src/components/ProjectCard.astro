@@ -9,6 +9,7 @@ const { frontmatter: ProjectFrontmatter } = Astro.props;
 >
   <div class="lg:max-w-xl">
     <img
+    transition:name={"thumbnail_"+ProjectFrontmatter.slug}
       class="aspect-video w-full"
       src={ProjectFrontmatter.thumbnail}
       alt={ProjectFrontmatter.title + " Project Thumbnail"}

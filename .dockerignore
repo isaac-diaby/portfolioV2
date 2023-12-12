@@ -1,0 +1,8 @@
+**/.vs
+**/.vscode
+**/.astro
+**/docker-compose*
+**/Dockerfile*
+.dockerignore
+.gitignore
+**/.git

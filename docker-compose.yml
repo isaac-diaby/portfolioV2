@@ -1,0 +1,12 @@
+version: "3.8"
+
+services:
+    node:
+        build:
+            context: .
+            dockerfile: Dockerfile
+            args:
+                NODE_ENV: production
+        ports:
+            - "9511:3000"
+        restart: unless-stopped

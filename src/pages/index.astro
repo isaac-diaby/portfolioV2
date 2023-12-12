@@ -1,4 +1,6 @@
 ---
+export const prerender = true;
+
 import PagesLayout from "@/layouts/PagesLayout.astro";
 ---
 
@@ -33,6 +35,8 @@ import PagesLayout from "@/layouts/PagesLayout.astro";
 
     <a
       href="/resume/Portfolio-Resume-2023-Isaac-Diaby.pdf"
+      target="_blank"
+      rel="noopener noreferrer"
       class="border-solid border-2 p-4 mt-8 md:mt-16 transition-[background-color color box-shadow] ease-in-out delay-30 hover:shadow-[0_0_1rem_#050f2e] dark:hover:shadow-[0_0_1rem_#be9e6b] border-primary-200 dark:border-secondary-500 hover:bg-primary-400 hover:text-white dark:hover:bg-secondary-400 dark:hover:text-black"
       aria-label="Open Moustapha's Resume">Open My Resume</a
     >
