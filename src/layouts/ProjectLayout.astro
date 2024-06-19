@@ -4,6 +4,8 @@ import Navbar from "@/components/Navbar";
 import { type ProjectFrontmatter } from "@/lib/interfaces/projectsFrontmatter.ts";
 
 const { frontmatter: ProjectFrontmatter } = Astro.props;
+
+console.log(ProjectFrontmatter);
 ---
 
 <MainLayout
@@ -21,7 +23,8 @@ const { frontmatter: ProjectFrontmatter } = Astro.props;
       </h1>
       <img
         class="aspect-video mx-auto"
-        transition:name={"thumbnail_"+ProjectFrontmatter.slug} transition:persist
+        transition:name={"thumbnail_" + ProjectFrontmatter.slug}
+        transition:persist
         src={ProjectFrontmatter.thumbnail}
         alt={ProjectFrontmatter.title + " Project Thumbnail"}
       />
@@ -56,7 +59,15 @@ const { frontmatter: ProjectFrontmatter } = Astro.props;
         }
       </div>
       <hr class="my-3" />
-      <slot />
+      <div class="prose max-w-full
+  p
+       dark:prose-invert
+  prose-h1:font-bold prose-h1:text-xl
+  prose-a:text-primary-500 prose-a:dark:text-secondary-400 prose-p:text-justify prose-img:rounded-xl
+  prose-headings:underline"
+      >
+        <slot />
+      </div>
       <hr class="my-3" />
     </section>
   </main>

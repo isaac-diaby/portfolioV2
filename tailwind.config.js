@@ -53,5 +53,5 @@ module.exports = {
       },
     },
   },
-  plugins: [require("tailwindcss-animate")], //Can Do basic transitions
+  plugins: [require("tailwindcss-animate"), require('@tailwindcss/typography')], //Can Do basic transitions
 };

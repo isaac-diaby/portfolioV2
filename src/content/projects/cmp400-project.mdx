@@ -1,0 +1,33 @@
+---
+layout: ../../layouts/ProjectLayout.astro
+title: Leveraging AI Agent Workforce for Cybersecurity Penetration Testing and Reporting
+slug: cmp400-dissertation-project
+thumbnail: /images/llm_pentest.png
+description: As part of my CMP400 dissertation project, I created an AI Agent cluster (Workforce) that emulate a cybersecurity team working together to carry out a pentest for a given client and generate a final report.
+tags: [AutoGen, AI Agents, Cybersecurity, Penetration Testing, Python, Machine Learning, NLP, ChatGPT, ]
+liveSite:
+codeBase: 
+---
+
+ AI agents are AI models that automatically complete tasks with a given initial input task prompt and environment prompt. With the development of concepts such as “AI agents Workforce” as shown in ChatDev Github project, it is possible to simulate a team of people working on a problem and generate code/social media posts as the output.  My project will analyse the report created by the “AI Agents Workforce” and determine the effectiveness of using AI agents to carry out Pentest
+
+### Project Overview 
+I want to create an AI Agent cluster (Workforce) that will emulate a cybersecurity team working together to carry out a pentest for a given client and generate a Report and any programs/resources used in the investigation in the research stages of the project.
+
+The main concept will be to build a system that will allow AI agents (or AI Models) with roles (Manager, Developer, Vulnerability analysis, ethical hacker, Reporter, etc.) to be able to feed data to one another like a conversation. That will enable them to build our solution for the given task - in our case performing a pen test and generating a report.  
+
+Each Agent will have an awareness of the capacity of the other Agents and their given roles on the project. This will allow them to condensate strategies and work patterns to:
+- generate key objectives that update over the duration of the investigation.
+- identify the target open ports, services architecture and others (for the report)
+- other roles I might look into are capturing, decryption and analysis of network packets for vulnerabilities.
+- creating and running programs/scripts on the host machine for the target
+- test if the program works and generates the desired output. if it doesn’t the Agents will brainstorm solutions to fix the issue and then try again (backpropagation to tweak the given program to reach the desired results)
+- to document the steps taken and the results of the investigation
+
+I used AutoGen to ocherstrate the AI agents and ChatGPT 4 as the main large nlanguage model for the agents.
+
+The results paper were promising as discussed in the results section of the paper. The AI agents were able to enumerrate over ports, detect known vulnerabilities and generate a report.
+
+The full paper can be found [here](https://blog.isaacdiaby.tech) and the codebase will be released soon. 
+
+note: that the codebase and paper are not released yet as I am still working on other things and will release it soon.
