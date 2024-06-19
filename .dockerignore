@@ -7,6 +7,6 @@
 .gitignore
 **/.git
 .DS_Store
-**/.astro
+**/.env
 node_modules
 dist
