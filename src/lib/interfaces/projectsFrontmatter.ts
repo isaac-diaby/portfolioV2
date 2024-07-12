@@ -4,6 +4,7 @@ export interface ProjectFrontmatter {
   description: string;
   tags: string[];
   thumbnail: string;
+  createdAt: string;
   liveSite?: string;
   codeBase?: string;
 }

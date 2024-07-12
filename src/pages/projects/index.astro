@@ -7,6 +7,7 @@ import { type ProjectFrontmatter } from "@/lib/interfaces/projectsFrontmatter.ts
 const projects = await Astro.glob<ProjectFrontmatter>(
   "../../content/projects/*.mdx"
 );
+projects.sort((a, b) =>  Date.parse(b.frontmatter.createdAt) - Date.parse(a.frontmatter.createdAt));
 ---
 
 <PagesLayout title="Projects | Moustapha Isaac Diaby">
