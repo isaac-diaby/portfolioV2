@@ -4,8 +4,6 @@ import Navbar from "@/components/Navbar";
 import { type ProjectFrontmatter } from "@/lib/interfaces/projectsFrontmatter.ts";
 
 const { frontmatter: ProjectFrontmatter } = Astro.props;
-
-console.log(ProjectFrontmatter);
 ---
 
 <MainLayout
@@ -14,7 +12,7 @@ console.log(ProjectFrontmatter);
   desc={ProjectFrontmatter.description}
 >
   <main class="min-h-screen">
-    <Navbar client:only />
+    <Navbar client:only="react" />
     <section class="mx-8 md:mx-16 lg:mx-32">
       <h1
         class="scroll-m-20 mb-3 md:mb-12 text-4xl text-center font-extrabold tracking-tight lg:text-5xl"
