@@ -143,7 +143,7 @@ export default function Navbar()  {
             </li>
             <li className="dark:hover:text-secondary hover:text-primary-200">
               <a
-                href="https://medium.com/@midiaby"
+                href="https://blog.isaacdiaby.tech/"
                 target="_blank"
                 rel="noopener noreferrer"
               >
