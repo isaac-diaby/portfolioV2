@@ -1,13 +1,16 @@
 ---
 export const prerender = true;
+import type { MarkdownInstance } from 'astro';
 import PagesLayout from "@/layouts/PagesLayout.astro";
 import ProjectCard from "@/components/ProjectCard.astro";
 import { type ProjectFrontmatter } from "@/lib/interfaces/projectsFrontmatter.ts";
 
-const projects = await Astro.glob<ProjectFrontmatter>(
-  "../../content/projects/*.mdx"
-);
+
+const projects = Object.values(import.meta.glob<MarkdownInstance<ProjectFrontmatter>>(
+  "../../content/projects/*.mdx", { eager: true }
+));
 projects.sort((a, b) =>  Date.parse(b.frontmatter.createdAt) - Date.parse(a.frontmatter.createdAt));
+// sorted Projects by date
 ---
 
 <PagesLayout title="Projects | Moustapha Isaac Diaby">
