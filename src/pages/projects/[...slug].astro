@@ -1,12 +1,24 @@
 ---
-import { type ProjectFrontmatter } from "@/lib/interfaces/projectsFrontmatter.ts";
+import type { MarkdownInstance } from 'astro';
+import { type ProjectFrontmatter } from "@/lib/interfaces/projectsFrontmatter.ts"; 
 
-const projects = await Astro.glob<ProjectFrontmatter>(
-  "../../content/projects/*.mdx"
+// const projects = import.meta.glob<ProjectFrontmatter>(
+const projects = import.meta.glob<MarkdownInstance<ProjectFrontmatter>>(
+  "../../content/projects/*.mdx", { eager: true }
 );
 const { slug } = Astro.params;
 
-const project = projects.find((pj) => pj.frontmatter.slug === slug);
+let project;
+for (const path in projects) {
+  let mod  = (projects[path]);
+  if (mod.frontmatter.slug === slug) {
+    project = mod;
+    break;
+  }
+  
+}
+
+// const project = projects.((pj) => pj.frontmatter.slug === slug);
 if (!project) return Astro.redirect("/404");
 
 const { Content } = project;
